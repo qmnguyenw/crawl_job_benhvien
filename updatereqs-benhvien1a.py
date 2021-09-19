@@ -15,6 +15,7 @@
 import csv
 import datetime
 
+# with open('./total_kienthuc_output.csv', 'r' , encoding='utf-8') as f_in, open('./new_kienthuc.sh', 'w', encoding='utf-8') as f_out:
 with open('./total_tintuc_output.csv', 'r' , encoding='utf-8') as f_in, open('./new_tintuc.sh', 'w', encoding='utf-8') as f_out:
     reader = csv.reader(f_in, delimiter='|')
     
@@ -46,7 +47,8 @@ with open('./total_tintuc_output.csv', 'r' , encoding='utf-8') as f_in, open('./
         else:
             post_status = 'publish'
 
-        txt = 'wp --url=https://benhvien1a.com post create --post_name=\'' + post_name + '\' --post_title=\'' +  post_title +  '\' --post_status=\'' + post_status + '\' --post_date=\'' + post_date_str + '\' doc/tintuc/' + post_name + '.txt' + ' --post_type=\'post\' --post_category=65 --post_author=8\n'
+        # txt = 'wp --url=https://benhvien1a.com post create --post_name=\'' + post_name + '\' --post_title=\'' +  post_title +  '\' --post_status=\'' + post_status + '\' --post_date=\'' + post_date_str + '\' doc/kienthuc/' + post_name + '.txt' + ' --post_type=\'post\' --post_category=61 --post_author=8\n'
+        txt = 'wp --url=https://benhvien1a.com post create --post_name=\'' + post_name + '\' --post_title=\'' +  post_title +  '\' --post_status=\'' + post_status + '\' --post_date=\'' + datetime.datetime.strptime(row[2], '%d-%m-%Y').strftime('%Y-%m-%d') + '\' doc/tintuc/' + post_name + '.txt' + ' --post_type=\'post\' --post_category=65 --post_author=8\n'
 
         f_out.write(txt)
         

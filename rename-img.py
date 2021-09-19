@@ -46,7 +46,7 @@ from bs4 import BeautifulSoup
 import webbrowser
 import requests
 
-with open('./total_kienthuc_output.csv', "r", encoding="utf-8") as f:
+with open('./total_tintuc_output.csv', "r", encoding="utf-8") as f:
     reader = csv.reader(f, delimiter='|')
     count = 0
     for row in reader:
